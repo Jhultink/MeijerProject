@@ -4,6 +4,7 @@ using Android.Runtime;
 namespace MeijerProject
 {
     [Application]
+
     public class MainApplication : MauiApplication
     {
         public MainApplication(IntPtr handle, JniHandleOwnership ownership)

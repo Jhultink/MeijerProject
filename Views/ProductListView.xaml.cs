@@ -1,4 +1,5 @@
 using MeijerProject.Models;
+using MeijerProject.Services.Interfaces;
 using MeijerProject.ViewModels;
 
 namespace MeijerProject.Views;
@@ -6,9 +7,12 @@ namespace MeijerProject.Views;
 public partial class ProductListView : ContentPage
 {
     private readonly ProductListViewModel _viewModel;
-    public ProductListView(ProductListViewModel viewModel)
+    private readonly INavigationService _navigationService;
+
+    public ProductListView(ProductListViewModel viewModel, INavigationService navigationService)
     {
         _viewModel = viewModel;
+        _navigationService = navigationService;
 
         InitializeComponent();
 
@@ -28,12 +32,7 @@ public partial class ProductListView : ContentPage
 
         if (e.Item is Product product)
         {
-            var detailView = MauiProgram.Provider?.GetRequiredService<ProductDetailView>();
-            if (detailView != null)
-            {
-                await Shell.Current.Navigation.PushAsync(detailView);
-            }
-            //await Shell.Current.GoToAsync($"//detail");
+            await _navigationService.PushAsync<ProductDetailView>(x => x.Init(product.Id));
         }
     }
 }

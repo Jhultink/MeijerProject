@@ -6,19 +6,25 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MeijerProject.ViewModels
+namespace MeijerProject.ViewModels;
+
+public abstract class BaseViewModel : INotifyPropertyChanged
 {
-    public abstract class BaseViewModel : INotifyPropertyChanged
+    private bool _isLoading;
+    public bool IsLoading
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
+        get => _isLoading;
+        set { _isLoading = value; OnPropertyChanged(); }
+    }
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            var changed = PropertyChanged;
-            if (changed == null)
-                return;
+    public event PropertyChangedEventHandler? PropertyChanged;
 
-            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+    protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+    {
+        var changed = PropertyChanged;
+        if (changed == null)
+            return;
+
+        changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

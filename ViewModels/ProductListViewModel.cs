@@ -8,13 +8,6 @@ public class ProductListViewModel : BaseViewModel
 {
     private readonly IProductService _productService;
 
-    private bool _isLoading;
-    public bool IsLoading
-    {
-        get => _isLoading;
-        set { _isLoading = value; OnPropertyChanged(); }
-    }
-
     private IEnumerable<Product> _products = [];
     public IEnumerable<Product> Products
     {
@@ -33,7 +26,10 @@ public class ProductListViewModel : BaseViewModel
 
     public async Task OnAppearing()
     {
-        await LoadProducts();
+        if (!Products.Any())
+        {
+            await LoadProducts();
+        }
     }
 
     private async Task LoadProducts()

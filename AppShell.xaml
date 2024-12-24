@@ -12,9 +12,4 @@
         ContentTemplate="{DataTemplate views:ProductListView}"
         Route="product">
     </ShellContent>
-
-    <ShellContent
-        Title="Product Details"
-        ContentTemplate="{DataTemplate views:ProductDetailView}"
-        Route="productdetail" />
 </Shell>

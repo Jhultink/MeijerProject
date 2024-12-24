@@ -9,8 +9,6 @@ namespace MeijerProject
 {
     public static class MauiProgram
     {
-        public static IServiceProvider? Provider;
-
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
@@ -31,16 +29,20 @@ namespace MeijerProject
             builder.Logging.AddDebug();
 #endif
             var app = builder.Build();
-            Provider = app.Services;
+
+
             return app;
         }
 
         public static void RegisterServices(IServiceCollection services)
         {
             services.AddTransient<IProductService, ProductService>();
-            services.AddSingleton<HttpClient>(new HttpClient { BaseAddress = new Uri("https://meijer-maui-test-default-rtdb.firebaseio.com") });
+            services.AddTransient<INavigationService, NavigationService>();
+            services.AddSingleton<HttpClient>(new HttpClient { 
+                BaseAddress = new Uri("https://meijer-maui-test-default-rtdb.firebaseio.com") 
+            });
         }
-        
+
         public static void RegisterViews(IServiceCollection services)
         {
             services.AddTransient<ProductListView>();

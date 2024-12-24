@@ -3,13 +3,18 @@
     x:Class="MeijerProject.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:MeijerProject"
+    xmlns:views="clr-namespace:MeijerProject.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="MeijerProject">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="Product List"
+        ContentTemplate="{DataTemplate views:ProductListView}"
+        Route="product" />
+
+    <ShellContent
+        Title="Product Details"
+        ContentTemplate="{DataTemplate views:ProductDetailView}"
+        Route="product/detail" />
 
 </Shell>

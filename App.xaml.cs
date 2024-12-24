@@ -1,4 +1,6 @@
-﻿namespace MeijerProject
+﻿using MeijerProject.Views;
+
+namespace MeijerProject
 {
     public partial class App : Application
     {

@@ -8,6 +8,9 @@ namespace MeijerProject.ViewModels
 {
     public class ProductDetailViewModel
     {
+        public string Title { get; set; }
+
+
 
     }
 }

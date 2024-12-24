@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MeijerProject.Models.Dtos
+namespace MeijerProject.Models
 {
-    public class ProductDetailDto : ProductDto
+    public class ProductDetail : Product
     {
         public required string Price { get; set; }
     }

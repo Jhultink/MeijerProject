@@ -3,11 +3,24 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MeijerProject.Views.ProductDetailView"
-    Title="ProductDetailView">
+    Title="Product Detail">
     <VerticalStackLayout>
-        <Label
-            Text="Welcome to .NET MAUI!"
+        <ActivityIndicator
+            IsRunning="{Binding IsLoading}"
+            IsVisible="{Binding IsLoading}"
             VerticalOptions="Center"
             HorizontalOptions="Center" />
+
+
+        <StackLayout
+            IsVisible="{Binding IsLoading, Converter={StaticResource InvertedBoolConverter}}">
+            <Label
+                Text="{Binding Title}" />
+            <Label
+                Text="{Binding Summary}" />
+            <Image
+                Source="{Binding ImageUrl}" />
+        </StackLayout>
+
     </VerticalStackLayout>
 </ContentPage>

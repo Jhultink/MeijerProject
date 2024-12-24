@@ -1,4 +1,5 @@
-﻿using MeijerProject.Services;
+﻿using CommunityToolkit.Maui;
+using MeijerProject.Services;
 using MeijerProject.Services.Interfaces;
 using MeijerProject.ViewModels;
 using MeijerProject.Views;
@@ -8,11 +9,14 @@ namespace MeijerProject
 {
     public static class MauiProgram
     {
+        public static IServiceProvider? Provider;
+
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -26,8 +30,9 @@ namespace MeijerProject
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-
-            return builder.Build();
+            var app = builder.Build();
+            Provider = app.Services;
+            return app;
         }
 
         public static void RegisterServices(IServiceCollection services)

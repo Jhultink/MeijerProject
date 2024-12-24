@@ -10,11 +10,11 @@
     <ShellContent
         Title="Product List"
         ContentTemplate="{DataTemplate views:ProductListView}"
-        Route="product" />
+        Route="product">
+    </ShellContent>
 
     <ShellContent
         Title="Product Details"
         ContentTemplate="{DataTemplate views:ProductDetailView}"
-        Route="product/detail" />
-
+        Route="productdetail" />
 </Shell>

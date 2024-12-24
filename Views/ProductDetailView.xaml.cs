@@ -4,7 +4,7 @@ namespace MeijerProject.Views;
 
 public partial class ProductDetailView : ContentPage
 {
-	public ProductDetailView(ProductDetailViewModel viewModel)
+    public ProductDetailView(ProductDetailViewModel viewModel)
 	{
 		InitializeComponent();
 

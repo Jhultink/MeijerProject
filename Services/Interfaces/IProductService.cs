@@ -1,10 +1,10 @@
-﻿using MeijerProject.Models.Dtos;
+﻿using MeijerProject.Models;
 
 namespace MeijerProject.Services.Interfaces
 {
-    interface IProductService
+    public interface IProductService
     {
-        Task<IEnumerable<ProductDto>?> GetProductsAsync();
-        Task<ProductDetailDto?> GetProductDetailsAsync(int id);
+        Task<IEnumerable<Product>?> GetProductsAsync();
+        Task<ProductDetail?> GetProductDetailsAsync(int id);
     }
 }

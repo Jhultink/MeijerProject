@@ -38,6 +38,7 @@ namespace MeijerProject
         {
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<INavigationService, NavigationService>();
+            services.AddSingleton<IShare>(Share.Default);
             services.AddSingleton<HttpClient>(new HttpClient { 
                 BaseAddress = new Uri("https://meijer-maui-test-default-rtdb.firebaseio.com") 
             });

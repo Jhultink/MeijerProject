@@ -23,7 +23,6 @@ namespace MeijerProject.Services
             {
                 initialize(page);
             }
-
             return Shell.Current.Navigation.PushAsync(page);
         }
     }

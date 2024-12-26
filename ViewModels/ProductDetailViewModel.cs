@@ -56,7 +56,7 @@ public partial class ProductDetailViewModel : BaseViewModel
             {
                 var placemarks = await Geocoding.Default.GetPlacemarksAsync(location);
                 var city = placemarks.Where(x => x.Locality != null).FirstOrDefault()?.Locality;
-                var shareText = $"{Detail?.Title} - {Detail?.Price} from {city} added to list";
+                var shareText = $"{Detail?.Title} - {Detail?.Price} from {city} added to list.";
 
                 await _share.RequestAsync(shareText);
             }

@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:MeijerProject.ViewModels"
+             xmlns:models="clr-namespace:MeijerProject.Models"
+             x:DataType="vm:ProductListViewModel"
              x:Class="MeijerProject.Views.ProductListView"
              Title="ProductListView">
     <StackLayout VerticalOptions="FillAndExpand"
@@ -21,6 +23,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout HorizontalOptions="FillAndExpand"
+                                     x:DataType="models:Product"
                                      Orientation="Horizontal">
                             <Image Source="{Binding ImageUrl}"
                                    WidthRequest="80"

@@ -11,7 +11,8 @@ namespace MeijerProject.Services
     {
         private readonly IServiceProvider _provider;
 
-        public NavigationService(IServiceProvider provider) { 
+        public NavigationService(IServiceProvider provider)
+        {
             _provider = provider;
         }
 
@@ -19,10 +20,8 @@ namespace MeijerProject.Services
         {
             T page = _provider.GetRequiredService<T>();
 
-            if (initialize != null)
-            {
-                initialize(page);
-            }
+            initialize?.Invoke(page);
+
             return Shell.Current.Navigation.PushAsync(page);
         }
     }
